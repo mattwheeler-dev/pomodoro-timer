@@ -1,1 +1,3 @@
-# pomodoro-timer
+# Pomodoro Timer
+
+## Built with React + Vite
