@@ -1,10 +1,12 @@
+import Timer from "./components/Timer";
+import SessionsSummary from "./components/SessionsSummary";
+
 const App = () => {
 	return (
 		<>
 			<h1>Pomodoro Timer</h1>
-			<div>timer / session display</div>
-			<div>timer / session type</div>
-			<div>number of work sessions so far</div>
+			<Timer />
+			<SessionsSummary />
 		</>
 	);
 };
