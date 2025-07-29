@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
+import { useSessions } from "../App";
 
 const DURATIONS = {
 	work: 25 * 60,
-	shortBreak: 5 * 60,
-	longBreak: 15 * 60,
+	"short-break": 5 * 60,
+	"long-break": 15 * 60,
 };
 
 const formatTime = (secs) => {
@@ -18,6 +19,8 @@ const Timer = () => {
 	const [mode, setMode] = useState("work");
 	const [timeLeft, setTimeLeft] = useState(DURATIONS[mode]);
 	const [isRunning, setIsRunning] = useState(false);
+
+	const { logSession } = useSessions();
 
 	// Reset timer on mode change
 	useEffect(() => {
@@ -34,8 +37,9 @@ const Timer = () => {
 			}, 1000);
 		}
 
-		if (timeLeft == 0) {
+		if (timeLeft == 0 && isRunning) {
 			setIsRunning(false);
+			logSession(mode, DURATIONS[mode]);
 		}
 
 		return () => clearInterval(interval);
@@ -57,8 +61,10 @@ const Timer = () => {
 	};
 
 	return (
-		<section>
-			<h2>Current Session: {mode.toUpperCase()}</h2>
+		<section className="timer">
+			<h2>
+				Current Session: <span>{mode}</span>
+			</h2>
 			<p>{formatTime(timeLeft)}</p>
 
 			<div className="timer-ctrls">
@@ -73,14 +79,14 @@ const Timer = () => {
 					Work
 				</button>
 				<button
-					onClick={() => selectMode("shortBreak")}
-					disabled={mode == "shortBreak"}
+					onClick={() => selectMode("short-break")}
+					disabled={mode == "short-break"}
 				>
 					Short Break
 				</button>
 				<button
-					onClick={() => selectMode("longBreak")}
-					disabled={mode == "longBreak"}
+					onClick={() => selectMode("long-break")}
+					disabled={mode == "long-break"}
 				>
 					Long Break
 				</button>

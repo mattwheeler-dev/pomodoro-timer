@@ -5,6 +5,20 @@
 }
 
 body {
+	height: 100dvh;
+	width: 100dvw;
 	color: #fff;
 	background-color: #202020;
+	overflow: clip;
+}
+
+h1,
+h2,
+h3 {
+	width: 100%;
+	text-align: center;
+}
+
+span {
+	text-transform: capitalize;
 }
