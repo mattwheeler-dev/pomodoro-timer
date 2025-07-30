@@ -10,4 +10,6 @@
   Start / Pause and Reset buttons for timer control.
   <br/>
   Sessions summary to display history of completed sessions.
+  <br/>
+  Check it out live <a href="https://pomodoro-timer-f4bb4.web.app/">here.</a>
 </p>
