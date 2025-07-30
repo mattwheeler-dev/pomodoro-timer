@@ -39,6 +39,7 @@ const Timer = () => {
 
 		if (timeLeft == 0 && isRunning) {
 			setIsRunning(false);
+			playSound();
 			logSession(mode, DURATIONS[mode]);
 		}
 
@@ -60,21 +61,28 @@ const Timer = () => {
 		}
 	};
 
+	const playSound = () => {
+		const audio = new Audio("/chimes.mp3");
+		audio.play();
+	};
+
 	return (
 		<section className="timer">
 			<h2>
-				Current Session: <span>{mode}</span>
+				Current Session:
+				<br />
+				<span>{mode}</span>
 			</h2>
-			<p>{formatTime(timeLeft)}</p>
+			<p className="clock">{formatTime(timeLeft)}</p>
 
-			<div className="timer-ctrls">
+			<div>
 				<button onClick={handleStartStop}>
 					{isRunning ? "Pause" : "Start"}
 				</button>
 				<button onClick={handleReset}>Reset</button>
 			</div>
 
-			<div className="mode-ctrls">
+			<div>
 				<button onClick={() => selectMode("work")} disabled={mode == "work"}>
 					Work
 				</button>

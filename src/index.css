@@ -1,24 +1,74 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap");
+
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	font-family: "Quicksand", Arial, Helvetica, sans-serif;
 }
 
 body {
 	height: 100dvh;
 	width: 100dvw;
 	color: #fff;
-	background-color: #202020;
-	overflow: clip;
+	background-color: #151515;
+	overflow: hidden;
 }
 
 h1,
 h2,
 h3 {
-	width: 100%;
 	text-align: center;
+}
+
+h3 {
+	margin-bottom: 0.75rem;
 }
 
 span {
 	text-transform: capitalize;
+}
+
+section {
+	height: fit-content;
+	width: 90%;
+	max-width: 600px;
+	margin: 3rem auto;
+}
+
+.clock {
+	width: 80%;
+	margin: 1rem auto;
+	font-size: 4rem;
+	text-align: center;
+	background-color: #000;
+	border: 2px solid #ffff00;
+	box-shadow: 0 0 0.75rem #ffff00;
+}
+
+div {
+	margin-top: 1.5rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+}
+
+button {
+	padding: 0.25rem 0.5rem;
+	font-size: 1rem;
+	color: #fff;
+	background-color: #000;
+	border: 1px solid #ffff00;
+}
+
+button:active {
+	scale: 0.8;
+}
+
+.summary {
+	height: 12rem;
+	padding: 0.5rem 1rem;
+	background-color: #000;
+	border: 2px solid #ffff00;
+	overflow-y: scroll;
 }
